@@ -9,9 +9,17 @@ import config from './mobile-service';
 
 class App extends Component {
 
-  state = {
-    registered: false
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      registered: false
+    };
+
+    PushRegistration.onMessageReceived((notification) => {
+      console.log('Received a push notification', notification);
+    });
+  }
 
   register = () => {
     console.log('Registering...');
