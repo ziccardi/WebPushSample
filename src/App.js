@@ -24,10 +24,22 @@ class App extends Component {
       .catch(error => console.log('Failed: ', error.message, JSON.stringify(error)));
   };
 
+  unregister = () => {
+    console.log('Unregistering...');
+    new PushRegistration(new ConfigurationService(config))
+      .unregister()
+      .then(() => {
+        console.log('Unregistered!');
+        this.setState({ registered: false });
+      })
+      .catch(error => console.log('Failed: ', error.message, JSON.stringify(error)));
+  };
+
   render() {
     return (
       <div className="App">
         <Button onClick={this.register} disabled={this.state.registered}>Register</Button>
+        <Button onClick={this.unregister} disabled={!this.state.registered}>Unregister</Button>
       </div>
     );
   }
