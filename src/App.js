@@ -7,7 +7,7 @@ import './App.css';
 
 import config from './mobile-service';
 
-class RegisterComponent extends Component {
+class App extends Component {
 
   state = {
     registered: false
@@ -26,17 +26,11 @@ class RegisterComponent extends Component {
 
   render() {
     return (
-      <Button onClick={this.register} disabled={this.state.registered}>Register</Button>
+      <div className="App">
+        <Button onClick={this.register} disabled={this.state.registered}>Register</Button>
+      </div>
     );
   }
-}
-
-function App() {
-  return (
-    <div className="App">
-      <RegisterComponent />
-    </div>
-  );
 }
 
 export default App;
