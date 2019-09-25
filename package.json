@@ -1,14 +1,15 @@
 {
-  "name": "multiselect",
+  "name": "webpush-sample",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@aerogear/cordova-plugin-aerogear-push": "^2.6.2",
     "@aerogear/core": "^2.6.2",
-    "@aerogear/push": "file:/Users/passos/Development/Projects/AeroGear/aerogear-js-sdk/packages/push",
+    "@aerogear/push": "file:/Users/ziccardi/work/aerogear/aerogear-js-sdk/packages/push",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
+    "react-toastify": "^5.4.0",
     "reactstrap": "^8.0.1"
   },
   "scripts": {

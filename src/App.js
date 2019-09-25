@@ -3,6 +3,8 @@ import { Component } from 'react';
 import { Button } from 'reactstrap';
 import { PushRegistration } from '@aerogear/push';
 import { ConfigurationService } from '@aerogear/core';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 import config from './mobile-service';
@@ -27,9 +29,13 @@ class App extends Component {
       .register()
       .then(() => {
         console.log('Registered!');
+        toast.info('Registration succeeded');
         this.setState({ registered: true });
       })
-      .catch(error => console.log('Failed: ', error.message, JSON.stringify(error)));
+      .catch(error => {
+        toast.error(`Failed: ${error.message}`);
+        console.log('Failed: ', error.message, JSON.stringify(error))
+      });
   };
 
   unregister = () => {
@@ -37,15 +43,20 @@ class App extends Component {
     new PushRegistration(new ConfigurationService(config))
       .unregister()
       .then(() => {
+        toast.info('Unregistered successfully');
         console.log('Unregistered!');
         this.setState({ registered: false });
       })
-      .catch(error => console.log('Failed: ', error.message, JSON.stringify(error)));
+      .catch(error => {
+        toast.error(`Failed: ${error.message}`);
+        console.log('Failed: ', error.message, JSON.stringify(error))
+      });
   };
 
   render() {
     return (
       <div className="App">
+        <ToastContainer />
         <Button onClick={this.register} disabled={this.state.registered}>Register</Button>
         <Button onClick={this.unregister} disabled={!this.state.registered}>Unregister</Button>
       </div>
