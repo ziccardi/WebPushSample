@@ -1,5 +1,7 @@
 module.exports = {
-  staticFileGlobs: [
+  swDest: './build/sw.js',
+  globDirectory: '/',
+  globPatterns: [
     'build/static/css/**.css',
     'build/static/js/**.js'
   ],
@@ -9,6 +11,6 @@ module.exports = {
   handleFetch: false,
   runtimeCaching: [{
     urlPattern: /this\\.is\\.a\\.regex/,
-    handler: 'networkFirst'
+    handler: 'StaleWhileRevalidate'
   }]
 }

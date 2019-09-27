@@ -69,6 +69,10 @@ function setOfCachedUrls(cache) {
   });
 }
 
+function addPushHandler(f) {
+   self.addEventListener('push', f);
+}
+
 
 self.addEventListener('push', function(event) {
   console.log('Received a push message', event);
@@ -85,6 +89,7 @@ self.addEventListener('push', function(event) {
     })
   );
 });
+
 
 self.addEventListener('notificationclick', function(event) {
   console.log('On notification click: ', event.notification.tag);

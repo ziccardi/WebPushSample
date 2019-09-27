@@ -20,16 +20,16 @@ class App extends Component {
 
     PushRegistration.onMessageReceived((notification) => {
       console.log('Received a push notification', notification);
+      toast.info(`Notification: ${notification}`)
     });
   }
 
   register = () => {
     console.log('Registering...');
     new PushRegistration(new ConfigurationService(config))
-      .register()
+      .register({serviceWorker: 'aerogear-sw.js'})
       .then(() => {
         console.log('Registered!');
-        toast.info('Registration succeeded');
         this.setState({ registered: true });
       })
       .catch(error => {
@@ -43,7 +43,6 @@ class App extends Component {
     new PushRegistration(new ConfigurationService(config))
       .unregister()
       .then(() => {
-        toast.info('Unregistered successfully');
         console.log('Unregistered!');
         this.setState({ registered: false });
       })
