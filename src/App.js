@@ -20,7 +20,8 @@ class App extends Component {
 
     PushRegistration.onMessageReceived((notification) => {
       console.log('Received a push notification', notification);
-      toast.info(`Notification: ${notification}`)
+      const notificationObject = JSON.parse(notification);
+      toast.info(`${notificationObject.alert}`);
     });
   }
 
