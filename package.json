@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "redux-devtools": "^3.5.0",
-    "serve": "^11.1.0",
+    "serve": "^11.2.0",
     "sw-precache": "^5.2.1",
     "workbox": "0.0.0",
     "workbox-build": "^4.3.1",
