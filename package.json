@@ -5,7 +5,7 @@
   "dependencies": {
     "@aerogear/cordova-plugin-aerogear-push": "^2.6.2",
     "@aerogear/core": "^2.6.2",
-    "@aerogear/push": "file:/Users/ziccardi/work/aerogear/aerogear-js-sdk/packages/push",
+    "@aerogear/push": "^2.7.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
